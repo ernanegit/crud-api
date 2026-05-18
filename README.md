@@ -88,9 +88,17 @@ crud-api-agenda/
 │   ├── app.service.ts              # Service padrão do NestJS
 │   └── main.ts                     # Ponto de entrada da aplicação
 ├── test/                           # Testes end-to-end
+├── test/                           # Testes end-to-end
 ├── .env                            # Variáveis de ambiente (não vai ao Git)
+├── .gitignore                      # Arquivos ignorados pelo Git
+├── .prettierrc                     # Configurações de formatação
 ├── docker-compose.yml              # Container do PostgreSQL
-├── package.json                    # Dependências e scripts
+├── eslint.config.mjs               # Configurações do ESLint
+├── nest-cli.json                   # Configurações do NestJS CLI
+├── package.json                    # Dependências e scripts npm
+├── package-lock.json               # Lock das versões das dependências
+├── README.md                       # Documentação do projeto
+├── tsconfig.build.json             # Configurações TypeScript para build
 └── tsconfig.json                   # Configurações do TypeScript
 ```
 
