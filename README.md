@@ -1,98 +1,203 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📒 CRUD API Agenda
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API RESTful para gerenciamento de contatos construída com **NestJS**, **Prisma ORM** e **PostgreSQL**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚀 Tecnologias
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [NestJS](https://nestjs.com/) — framework Node.js para construção de APIs escaláveis
+- [Prisma ORM](https://www.prisma.io/) — ORM moderno e tipado para TypeScript
+- [PostgreSQL](https://www.postgresql.org/) — banco de dados relacional
+- [Docker](https://www.docker.com/) — container do banco de dados
+- [TypeScript](https://www.typescriptlang.org/) — tipagem estática
 
-## Project setup
+---
 
-```bash
-$ npm install
-```
+## 📋 Pré-requisitos
 
-## Compile and run the project
+- [Node.js](https://nodejs.org/) v18+
+- [Docker](https://www.docker.com/) e Docker Compose
+- [Git](https://git-scm.com/)
+
+---
+
+## ⚙️ Instalação e execução
+
+### 1. Clone o repositório
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/ernanegit/crud-api.git
+cd crud-api
 ```
 
-## Run tests
+### 2. Instale as dependências
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+### 3. Configure as variáveis de ambiente
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Crie um arquivo `.env` na raiz do projeto:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/agenda_db"
+```
+
+### 4. Suba o banco de dados com Docker
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+docker compose up -d
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 5. Execute as migrations do Prisma
 
-## Resources
+```bash
+npx prisma migrate dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 6. Inicie a aplicação
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+npm run start:dev
+```
 
-## Support
+A API estará disponível em `http://localhost:3000`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 📁 Estrutura do projeto
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
+crud-api-agenda/
+├── prisma/
+│   ├── migrations/               # Histórico de migrações do banco
+│   └── schema.prisma             # Definição dos models e conexão
+├── src/
+│   ├── contatos/
+│   │   ├── contatos.controller.ts  # Rotas HTTP dos contatos
+│   │   ├── contatos.module.ts      # Módulo de contatos
+│   │   └── contatos.service.ts     # Regras de negócio
+│   ├── prisma/
+│   │   ├── prisma.module.ts        # Módulo global do Prisma
+│   │   └── prisma.service.ts       # Serviço de conexão com o banco
+│   ├── app.controller.ts           # Controller padrão do NestJS
+│   ├── app.controller.spec.ts      # Testes do controller padrão
+│   ├── app.module.ts               # Módulo raiz da aplicação
+│   ├── app.service.ts              # Service padrão do NestJS
+│   └── main.ts                     # Ponto de entrada da aplicação
+├── test/                           # Testes end-to-end
+├── .env                            # Variáveis de ambiente (não vai ao Git)
+├── docker-compose.yml              # Container do PostgreSQL
+├── package.json                    # Dependências e scripts
+└── tsconfig.json                   # Configurações do TypeScript
+```
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 🔌 Endpoints
+
+### Contatos
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| `POST` | `/contatos` | Criar um contato |
+| `GET` | `/contatos` | Listar todos os contatos |
+| `GET` | `/contatos/:id` | Buscar contato por ID |
+| `PUT` | `/contatos/:id` | Atualizar contato |
+| `DELETE` | `/contatos/:id` | Deletar contato |
+
+---
+
+## 📨 Exemplos de uso
+
+### Criar contato
+
+```http
+POST /contatos
+Content-Type: application/json
+
+{
+  "nome": "Ernan",
+  "email": "ernan@email.com",
+  "telefone": "85999999999"
+}
+```
+
+### Resposta
+
+```json
+{
+  "id": 1,
+  "nome": "Ernan",
+  "email": "ernan@email.com",
+  "telefone": "85999999999",
+  "createdAt": "2026-05-18T00:13:31.518Z"
+}
+```
+
+### Atualizar contato
+
+```http
+PUT /contatos/1
+Content-Type: application/json
+
+{
+  "telefone": "85988888888"
+}
+```
+
+### Deletar contato
+
+```http
+DELETE /contatos/1
+```
+
+---
+
+## 🗄️ Model do banco de dados
+
+```prisma
+model Contato {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  telefone  String?
+  createdAt DateTime @default(now())
+}
+```
+
+---
+
+## 🐳 Docker
+
+O banco de dados PostgreSQL roda em um container Docker.
+
+```bash
+# Subir o container
+docker compose up -d
+
+# Parar o container
+docker compose down
+
+# Ver logs do container
+docker logs agenda_db
+```
+
+---
+
+## 📜 Scripts disponíveis
+
+```bash
+npm run start        # Inicia em produção
+npm run start:dev    # Inicia com hot-reload
+npm run build        # Compila o TypeScript
+npm run test         # Executa os testes
+```
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Ernan** como projeto de aprendizado de NestJS + Prisma + PostgreSQL.
